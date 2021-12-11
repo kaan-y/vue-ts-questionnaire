@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="ca-form">
     <h1>{{ title }}</h1>
     <form @submit.prevent="submitForm">
       <div v-for="(q, index) in questions" :key="q.id">
@@ -26,3 +26,9 @@ export default class CustomerAllianceForm extends Vue {
   private questions = questionsJson.questions;
 }
 </script>
+
+<style lang="scss" scoped>
+.ca-form {
+  padding: 3rem;
+}
+</style>

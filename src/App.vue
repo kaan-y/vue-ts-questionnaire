@@ -20,5 +20,11 @@ html {
   max-width: 768px;
   margin: 0 auto;
   border-radius: 20px;
+
+  input[type="radio"] {
+    appearance: none;
+    background-color: #fff;
+    margin: 0;
+  }
 }
 </style>

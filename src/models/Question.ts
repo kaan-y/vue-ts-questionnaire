@@ -9,17 +9,19 @@ export interface IQuestion {
   validation: {
     required: boolean;
   };
-  sub_questions: ISubQuestion[];
+  sub_questions: ISubQuestions[];
+}
+
+export interface ISubQuestions {
+  values: Array<string>;
+  questions: ISubQuestion[];
 }
 
 export interface ISubQuestion {
-  values: Array<string>;
-  questions: Array<{
-    id: number;
-    type: string;
-    label: string;
-    validation: {
-      required: boolean;
-    };
-  }>;
+  id: number;
+  type: string;
+  label: string;
+  validation: {
+    required: boolean;
+  };
 }

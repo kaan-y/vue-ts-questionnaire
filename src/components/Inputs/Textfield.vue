@@ -1,11 +1,12 @@
 <template>
   <label>
     <div v-if="label">{{label}}</div>
-    <textarea
+    <input
+      type="text"
       v-bind="$attrs"
       v-on="$listeners"
       :value="value"
-      @input="$emit('update', $event.target.value)"
+      @input="$emit('input', $event.target.value)"
     />
   </label>
 </template>
@@ -16,19 +17,21 @@ import {
 } from 'vue-property-decorator';
 
 @Component
-export default class Textarea extends Vue {
+export default class Textfield extends Vue {
   @Prop() private label!: string;
 
-  @Model('update', { type: String }) value!: string;
+  @Model('input', { type: String }) value!: string;
 }
 </script>
 
 <style lang="scss" scoped>
-textarea {
-  width: 300px;
+input {
+  width: 100%;
   padding: 12px 20px;
+  margin: 8px 0;
   box-sizing: border-box;
-  border-width: 1px;
   border-radius: 4px;
+  border-width: 1px;
+  height: 50px;
 }
 </style>

@@ -1,5 +1,10 @@
 <template>
-  <component :is="componentName" :data="data" v-bind="$attrs" v-on="$listeners" />
+  <component
+    :is="componentName"
+    :data="data"
+    v-bind="$attrs"
+    v-on="$listeners"
+  />
 </template>
 
 <script lang="ts">
