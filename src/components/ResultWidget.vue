@@ -1,24 +1,19 @@
 <template>
   <div class="result-widget">
-    <p>{{question}}</p>
-    <p>{{answer}}</p>
+    <div v-for="q in $store.state.questions" :key="q.id">
+      <p>{{q.label}}</p>
+      <p>{{q.answer}}</p>
+    </div>
     <hr>
     <p class="result-widget__date">DATE OF EXPERIENCE: {{date}}</p>
   </div>
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from 'vue-property-decorator';
+import { Component, Vue } from 'vue-property-decorator';
 
-@Component({
-  components: {
-  },
-})
-export default class Question extends Vue {
-  @Prop({ required: true }) private question!: string;
-
-  @Prop({ required: true }) private answer!: string;
-
+@Component
+export default class ResultWidget extends Vue {
   get date(): string {
     const d = new Date();
     const mm = d.getMonth() + 1;

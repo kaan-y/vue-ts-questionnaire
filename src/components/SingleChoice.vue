@@ -47,7 +47,7 @@
 import {
   Component, Prop, Vue, Watch,
 } from 'vue-property-decorator';
-import { IQuestion, ISubQuestion } from '@/models/Question';
+import { IQuestion, ISubQuestion, IAnsweredQuestion } from '@/models/Question';
 
 @Component({
   components: {
@@ -101,6 +101,14 @@ export default class SingleChoice extends Vue {
   public onChange(e: Event): void {
     const { value } = e.target as HTMLInputElement;
     this.selectedOption = value;
+
+    const payload: IAnsweredQuestion = {
+      id: this.data.id,
+      label: this.data.label,
+      answer: value,
+    };
+
+    this.$store.dispatch('addQuestion', payload);
   }
 }
 </script>

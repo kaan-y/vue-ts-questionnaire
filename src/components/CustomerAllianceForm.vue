@@ -6,7 +6,7 @@
         <Question :data="q" :index="index + 1" v-on="$listeners" />
       </div>
       <button type="submit">Submit</button>
-      <ResultWidget question="asdasdasdasd" answer="1" />
+      <ResultWidget v-if="this.$store.state.questions.length" />
     </form>
   </div>
 </template>
