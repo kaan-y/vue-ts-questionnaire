@@ -38,6 +38,7 @@ export default class ResultWidget extends Vue {
   font-size: 12px;
   font-weight: bold;
   max-width: 200px;
+  word-break: break-word;
 
   & hr {
     border-width: 2px;
