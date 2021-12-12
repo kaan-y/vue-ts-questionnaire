@@ -8,7 +8,7 @@
         :value="value"
         @input="$emit('input', $event.target.value)"
         @blur="validate"
-        v-model="value"
+        v-model="val"
       />
     </label>
     <span v-if="showError" class="errorMessage">{{errorMsg}}</span>
@@ -27,6 +27,8 @@ export default class Textfield extends Vue {
   @Model('input', { type: String }) value!: string;
 
   private showError = false;
+
+  private val = this.value || '';
 
   get errorMsg(): string {
     if (this.$attrs.type === 'password') {
@@ -49,6 +51,7 @@ export default class Textfield extends Vue {
     const hasDot = /\./.test(value);
 
     this.showError = !hasAt || !hasDot;
+    this.$store.dispatch('setEmailValid', hasAt && hasDot);
   }
 
   public passwordValidation(value: string): void {
@@ -56,6 +59,7 @@ export default class Textfield extends Vue {
     const hasNumber = /[0-9]/.test(value);
 
     this.showError = !hasLowerCase || !hasNumber;
+    this.$store.dispatch('setPasswordValid', hasLowerCase && hasNumber);
   }
 }
 </script>

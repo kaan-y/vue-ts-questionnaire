@@ -31,12 +31,23 @@ export default class CustomerAllianceForm extends Vue {
   @Prop() private title!: string;
 
   private questions = questionsJson.questions;
+
+  public submitForm() {
+    const { isEmailValid, isPasswordValid } = this.$store.state;
+
+    if (isEmailValid && isPasswordValid) {
+      this.$store.dispatch('submitForm', true);
+    }
+  }
 }
 </script>
 
 <style lang="scss" scoped>
 .ca-form {
   padding: 3rem;
+  @media (max-width: 600px) {
+    padding: 1rem;
+  }
 
   &__wrapper {
     position: relative;

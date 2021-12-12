@@ -45,8 +45,8 @@ export default class TextQuestion extends Vue {
 
   public onBlur(e: Event): void {
     const { value } = e.target as HTMLInputElement;
-
     if (this.data.type === 'password') return;
+    if (this.data.type === 'email' && !this.$store.state.isEmailValid) return;
 
     const payload: IAnsweredQuestion = {
       id: this.data.id,
