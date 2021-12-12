@@ -29,8 +29,8 @@
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
 import { IQuestion, IAnsweredQuestion } from '@/models/Question';
-import Textfield from '@/components/inputs/Textfield.vue';
-import Textarea from '@/components/inputs/Textarea.vue';
+import Textfield from '@/components/Inputs/Textfield.vue';
+import Textarea from '@/components/Inputs/Textarea.vue';
 
 @Component({
   components: {
