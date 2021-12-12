@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import Vue from 'vue';
 import Vuex from 'vuex';
 import { IAnsweredQuestion } from '@/models/Question';
@@ -11,8 +12,13 @@ export default new Vuex.Store({
   mutations: {
     addQuestion(state, payload: IAnsweredQuestion) {
       const index = state.questions.map((q: IAnsweredQuestion) => q.id).indexOf(payload.id);
+
       if (index !== -1) {
-        state.questions.splice(index, 1, payload);
+        if (payload.answer.length) {
+          state.questions.splice(index, 1, payload);
+        } else {
+          state.questions.splice(index, 1);
+        }
       } else {
         state.questions.push(payload);
       }

@@ -15,14 +15,14 @@
           (required)
         </span>
       </p>
-      <Textfield :name="data.type" :required="data.validation.required" />
+      <Textfield :name="data.type" :required="data.validation.required" @blur="onBlur" />
     </div>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
-import { IQuestion } from '@/models/Question';
+import { IQuestion, IAnsweredQuestion } from '@/models/Question';
 import Textfield from '@/components/inputs/Textfield.vue';
 import Textarea from '@/components/inputs/Textarea.vue';
 
@@ -37,8 +37,19 @@ export default class TextQuestion extends Vue {
 
   @Prop() private index!: number;
 
-  private texty = 'asd';
+  public onBlur(e: Event): void {
+    const { value } = e.target as HTMLInputElement;
+
+    const payload: IAnsweredQuestion = {
+      id: this.data.id,
+      label: this.data.label,
+      answer: value,
+    };
+
+    this.$store.dispatch('addQuestion', payload);
+  }
 }
+
 </script>
 
 <style lang="scss" scoped>

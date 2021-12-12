@@ -137,7 +137,7 @@ export default class SingleChoice extends Vue {
 
     &-age {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
 
       &__wrapper {
         border: 1px solid #444;
@@ -159,7 +159,7 @@ export default class SingleChoice extends Vue {
 
       label {
         display: inline-block;
-        padding: 15px 20px;
+        padding: 15px 10px;
         font-family: sans-serif, Arial;
         font-size: 12px;
         text-align: center;

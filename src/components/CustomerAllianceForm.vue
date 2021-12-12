@@ -1,13 +1,15 @@
 <template>
-  <div class="ca-form-wrapper">
+  <div class="ca-form">
     <h1>{{ title }}</h1>
-    <form @submit.prevent="submitForm" class="ca-form-wrapper__form">
-      <div v-for="(q, index) in questions" :key="q.id">
-        <Question :data="q" :index="index + 1" v-on="$listeners" />
-      </div>
-      <button type="submit">Submit</button>
+    <div class="ca-form__wrapper">
+      <form @submit.prevent="submitForm" class="ca-form__wrapper__form">
+        <div v-for="(q, index) in questions" :key="q.id">
+          <Question :data="q" :index="index + 1" v-on="$listeners" />
+        </div>
+        <button type="submit">Submit</button>
+      </form>
       <ResultWidget v-if="this.$store.state.questions.length" />
-    </form>
+    </div>
   </div>
 </template>
 
@@ -31,11 +33,18 @@ export default class CustomerAllianceForm extends Vue {
 </script>
 
 <style lang="scss" scoped>
-.ca-form-wrapper {
+.ca-form {
   padding: 3rem;
 
-  &__form {
+  &__wrapper {
     position: relative;
+    display: grid;
+    grid-template-columns: 80% auto;
+
+    &__form {
+      position: relative;
+    }
   }
+
 }
 </style>

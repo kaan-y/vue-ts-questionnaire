@@ -1,8 +1,8 @@
 <template>
   <div class="result-widget">
-    <div v-for="q in $store.state.questions" :key="q.id">
+    <div v-for="q in $store.state.questions" :key="q.id" class="result-widget__question-wrapper">
       <p>{{q.label}}</p>
-      <p>{{q.answer}}</p>
+      <p class="result-widget__question-wrapper__answer">{{q.answer}}</p>
     </div>
     <hr>
     <p class="result-widget__date">DATE OF EXPERIENCE: {{date}}</p>
@@ -29,8 +29,8 @@ export default class ResultWidget extends Vue {
 .result-widget {
   position: absolute;
   top: 20px;
-  right: -50px;
-  padding: 10px;
+  right: -110px;
+  padding: 20px 15px;
   background: whitesmoke;
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
@@ -42,11 +42,25 @@ export default class ResultWidget extends Vue {
     border-color: red;
   }
 
+  &__question-wrapper {
+    p {
+      margin: 0;
+      &:not(:first-child) {
+        margin-bottom: 15px;
+      }
+    }
+
+    &__answer {
+      font-weight: normal;
+    }
+  }
+
   &__date {
     color: blue;
     text-align: center;
     padding: 0 5px;
     font-size: 11px;
+    margin-bottom: 0;
   }
 }
 </style>
