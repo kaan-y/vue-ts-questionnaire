@@ -1,6 +1,5 @@
 <template>
   <div class="home">
-    <!-- <img alt="Vue logo" src="../assets/logo.png"> -->
     <Success v-if="$store.state.isFormSubmitted" />
     <CustomerAllianceForm title="Customer Alliance Form" v-else/>
   </div>

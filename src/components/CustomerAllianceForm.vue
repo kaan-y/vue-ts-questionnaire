@@ -10,7 +10,7 @@
           <button type="submit">Submit</button>
         </div>
       </form>
-      <ResultWidget v-if="this.$store.state.questions.length" />
+      <ResultWidget v-if="$store.state.questions.length" />
     </div>
   </div>
 </template>
@@ -32,7 +32,7 @@ export default class CustomerAllianceForm extends Vue {
 
   private questions = questionsJson.questions;
 
-  public submitForm() {
+  public submitForm(): void {
     const { isEmailValid, isPasswordValid } = this.$store.state;
 
     if (isEmailValid && isPasswordValid) {

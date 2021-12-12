@@ -37,6 +37,7 @@ export default class ResultWidget extends Vue {
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   font-size: 12px;
   font-weight: bold;
+  max-width: 200px;
 
   & hr {
     border-width: 2px;

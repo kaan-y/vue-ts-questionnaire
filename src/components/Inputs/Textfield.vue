@@ -11,7 +11,7 @@
         v-model="val"
       />
     </label>
-    <span v-if="showError" class="errorMessage">{{errorMsg}}</span>
+    <span v-if="showError" class="error-message">{{errorMsg}}</span>
   </div>
 </template>
 
@@ -34,7 +34,7 @@ export default class Textfield extends Vue {
     if (this.$attrs.type === 'password') {
       return 'Password must contain at least one lowercase letter and a number.';
     }
-    return 'Email not valid.';
+    return 'Please enter a valid email address.';
   }
 
   public validate(e: Event): void {
@@ -75,7 +75,7 @@ input {
   height: 50px;
 }
 
-.errorMessage {
+.error-message {
   color: red;
   font-size: 11px;
   margin: 5px 0;
