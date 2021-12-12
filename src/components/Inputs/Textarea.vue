@@ -30,6 +30,7 @@ textarea {
   box-sizing: border-box;
   border-width: 1px;
   border-radius: 4px;
+  font-family: inherit;
 }
 
 @media (max-width: 600px) {
