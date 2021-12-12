@@ -99,7 +99,6 @@ export default class SingleChoice extends Vue {
   }
 
   public onChange(e: Event): void {
-    console.log((e.target as HTMLInputElement).value);
     const { value } = e.target as HTMLInputElement;
     this.selectedOption = value;
   }
