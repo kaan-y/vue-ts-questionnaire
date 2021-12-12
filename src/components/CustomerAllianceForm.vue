@@ -6,7 +6,9 @@
         <div v-for="(q, index) in questions" :key="q.id">
           <Question :data="q" :index="index + 1" v-on="$listeners" />
         </div>
-        <button type="submit">Submit</button>
+        <div class="ca-form__wrapper__form__button-wrapper">
+          <button type="submit">Submit</button>
+        </div>
       </form>
       <ResultWidget v-if="this.$store.state.questions.length" />
     </div>
@@ -43,6 +45,30 @@ export default class CustomerAllianceForm extends Vue {
 
     &__form {
       position: relative;
+
+      &__button-wrapper {
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 30px;
+
+        button {
+          display: inline-block;
+          outline: none;
+          cursor: pointer;
+          font-weight: 600;
+          border-radius: 3px;
+          padding: 12px 24px;
+          border: 0;
+          color: #000021;
+          background: #1de9b6;
+          line-height: 1.15;
+          font-size: 16px;
+          &:hover {
+            transition: all .1s ease;
+            box-shadow: 0 0 0 0 #fff, 0 0 0 3px #1de9b6;
+          }
+        }
+      }
     }
   }
 

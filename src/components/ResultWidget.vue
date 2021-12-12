@@ -27,6 +27,7 @@ export default class ResultWidget extends Vue {
 
 <style lang="scss" scoped>
 .result-widget {
+  display: block;
   position: absolute;
   top: 20px;
   right: -110px;
@@ -61,6 +62,12 @@ export default class ResultWidget extends Vue {
     padding: 0 5px;
     font-size: 11px;
     margin-bottom: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .result-widget {
+    display: none;
   }
 }
 </style>

@@ -25,10 +25,16 @@ export default class Textarea extends Vue {
 
 <style lang="scss" scoped>
 textarea {
-  width: 300px;
+  width: 50%;
   padding: 12px 20px;
   box-sizing: border-box;
   border-width: 1px;
   border-radius: 4px;
+}
+
+@media (max-width: 600px) {
+  textarea {
+    width: 100%;
+  }
 }
 </style>

@@ -7,6 +7,7 @@
         rows="2"
         :placeholder="data.label"
         :required="data.validation.required"
+        @blur="onBlur"
       />
     </div>
     <div v-else>
@@ -15,7 +16,12 @@
           (required)
         </span>
       </p>
-      <Textfield :name="data.type" :required="data.validation.required" @blur="onBlur" />
+      <Textfield
+        :name="data.type"
+        :type="data.type"
+        :required="data.validation.required"
+        @blur="onBlur"
+      />
     </div>
   </div>
 </template>
@@ -39,6 +45,8 @@ export default class TextQuestion extends Vue {
 
   public onBlur(e: Event): void {
     const { value } = e.target as HTMLInputElement;
+
+    if (this.data.type === 'password') return;
 
     const payload: IAnsweredQuestion = {
       id: this.data.id,
@@ -70,7 +78,6 @@ export default class TextQuestion extends Vue {
   }
 
   &__comment {
-    display: inline-flex;
     margin-bottom: 15px;
   }
 }
